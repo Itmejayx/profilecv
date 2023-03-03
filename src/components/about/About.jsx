@@ -13,53 +13,10 @@ const About = () => {
         <div className="about__data grid">
           <div className="about__info">
             <p className="about__description">
-              I'm Tran Van Trung, Back-end developer from Thua Thien Hue, Vietnam , with my youth and enthusiasm I am always ready to listen and fulfill the requirements of the company.
+              I'm Tran Van Trung, Back-end developer from Thua Thien Hue, Vietnam , with my youth and enthusiasm I am always ready to listen and fulfill the requirements of the company.Learning new languages and technologies is something I'm passionate about. I like working with a team where
+              allteam members can share and help each other.
             </p>
             <a href={MyCV} className="btn" download>Download CV</a>
-          </div>
-
-          <div className="about__skills grid">
-            <div className="skills__data">
-              <div className="skills__title">
-                <h3 className="skills__name">PHP/Laravel</h3>
-                <span className="skills__number">70%</span>
-              </div>
-
-              <div className="skills__bar">
-                <span className="skills__percentage php__laravel"></span>
-              </div>
-            </div>
-
-            <div className="skills__data">
-              <div className="skills__title">
-                <h3 className="skills__name">HTML/CSS</h3>
-                <span className="skills__number">65%</span>
-              </div>
-              <div className="skills__bar">
-                <span className="skills__percentage html__css"></span>
-              </div>
-            </div>
-
-            <div className="skills__data">
-              <div className="skills__title">
-                <h3 className="skills__name">ReactJS</h3>
-                <span className="skills__number">35%</span>
-              </div>
-              <div className="skills__bar">
-                <span className="skills__percentage reactjs"></span>
-              </div>
-            </div>
-
-            <div className="skills__data">
-              <div className="skills__title">
-                <h3 className="skills__name">MySQL</h3>
-                <span className="skills__number">60%</span>
-              </div>
-              <div className="skills__bar">
-                <span className="skills__percentage mysql"></span>
-              </div>
-            </div>
-
           </div>
         </div>
 
