@@ -1,30 +1,50 @@
-import React from 'react'
 import './contact.css'
+import React from 'react';
+import emailjs from '@emailjs/browser';
+import { useRef as UseRef } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
-const contact = () => {
+function contact() {
+  const form = UseRef();
+  const showToastMessage = () => {
+    toast.success('Success Notification !', {
+      position: toast.POSITION.TOP_RIGHT
+    });
+  };
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs.sendForm('service_qldc2xv', 'template_fhb2x34', form.current, 'R4OAVT7UAsNFc69Jr')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
   return (
     <section className="contact container section" id='contact'>
         <h2 className="section__title">Contact Me</h2>
-        <form action="" className="contact__form">
+        <form ref={form} onSubmit={sendEmail} className="contact__form">
           <div className="contact__form-group">
             <div className="contact__form-div">
-              <input type="text" className="contact__form-input" placeholder='Name' />
+              <input type="text" name="user_name" className="contact__form-input" placeholder='Name' />
             </div>
 
             <div className="contact__form-div">
-              <input type="email" className="contact__form-input" placeholder='Email' />
+              <input type="email" name='user_email' className="contact__form-input" placeholder='Email' />
             </div>
 
             <div className="contact__form-div">
-              <input type="text" className="contact__form-input" placeholder='Subject' />
+              <input type="text" name='user_subject' className="contact__form-input" placeholder='Subject' />
             </div>
 
             <div className="contact__form-div">
-              <textarea name="" id="" cols="30" rows="10" className='contact__form-input contact__form-area' placeholder='Write your message'></textarea>
+              <textarea name="user_message" id="" cols="30" rows="10" className='contact__form-input contact__form-area' placeholder='Write your message'></textarea>
             </div>
             
           </div>
-          <button className='btn'>Send Message</button>
+          <button onClick={showToastMessage} className='btn'>Send Message</button>
+          <ToastContainer />
         </form>
         <div className="col-md-4">
             <div className="single-contact">
