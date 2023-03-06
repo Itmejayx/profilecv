@@ -1,7 +1,7 @@
 import React from 'react'
 import './about.css'
 import Image from '../../assets/avatar-2.svg'
-import MyCV from '../../assets/TRANVANTRUNG_PHP_INTERN (2).pdf'
+import MyCV from '../../assets/TRANVANTRUNG-CV-PHP-FRESHER (1).pdf'
 
 const About = () => {
   return (
