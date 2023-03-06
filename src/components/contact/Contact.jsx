@@ -1,12 +1,36 @@
 import './contact.css'
-import React from 'react';
+import React, { useState as UseState } from 'react';
 import emailjs from '@emailjs/browser';
 import { useRef as UseRef } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
+  import cn from 'classnames'
+import styles from "./contact.css"
 
 function contact() {
   const form = UseRef();
+  const [userName,setUserName] = UseState("")
+  const [email,setEmail] = UseState("")
+  const [subject,setSubject] = UseState("")
+  const [message,setMessage] = UseState("")
+  const handleSetUserName = (e) => {
+    const userNameId = document.getElementsByName('user_name')
+    setUserName(e.target.value)
+  }
+  const handleSetEmail = (e) => {
+    const emailId = document.getElementsByName('user_email')
+    setEmail(e.target.value)
+  }
+
+  const handleSetSubject = (e) => {
+    const subjectId = document.getElementsByName('user_subject')
+    setSubject(e.target.value)
+  }
+
+  const handleSetMessage = (e) => {
+    const messageId = document.getElementsByName('user_message')
+    setMessage(e.target.value)
+  }
   const showToastMessage = () => {
     toast.success('Success Notification !', {
       position: toast.POSITION.TOP_RIGHT
@@ -27,23 +51,23 @@ function contact() {
         <form ref={form} onSubmit={sendEmail} className="contact__form">
           <div className="contact__form-group">
             <div className="contact__form-div">
-              <input type="text" name="user_name" className="contact__form-input" placeholder='Name' />
+              <input type="text" name="user_name" className="contact__form-input" placeholder='Name' onChange={handleSetUserName} value={userName} />
             </div>
 
             <div className="contact__form-div">
-              <input type="email" name='user_email' className="contact__form-input" placeholder='Email' />
+              <input type="email" name='user_email' className="contact__form-input" placeholder='Email' onChange={handleSetEmail} value={email} />
             </div>
 
             <div className="contact__form-div">
-              <input type="text" name='user_subject' className="contact__form-input" placeholder='Subject' />
+              <input type="text" name='user_subject' className="contact__form-input" placeholder='Subject' onChange={handleSetSubject} value={subject} />
             </div>
 
             <div className="contact__form-div">
-              <textarea name="user_message" id="" cols="30" rows="10" className='contact__form-input contact__form-area' placeholder='Write your message'></textarea>
+              <textarea name="user_message" id="" cols="30" rows="10" className='contact__form-input contact__form-area' onChange={handleSetMessage} value={message} placeholder='Write your message'></textarea>
             </div>
             
           </div>
-          <button onClick={showToastMessage} className='btn'>Send Message</button>
+          <button onClick={showToastMessage} className={userName === "" || email === "" || subject === "" || message === "" ? cn(styles.disabled): "btn btn-default"} disabled={userName === "" || email === "" || subject === "" || message === ""}>Send Message</button>
           <ToastContainer />
         </form>
         <div className="col-md-4">
