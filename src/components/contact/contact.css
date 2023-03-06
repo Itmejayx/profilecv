@@ -71,6 +71,10 @@
 	font-weight: 400;
 }
 
+a.tellme {
+	color: var(--text-colors);
+}
+
 
 
 /* .pb-100  {

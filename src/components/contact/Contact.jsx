@@ -77,7 +77,9 @@ function contact() {
         <div className="single-contact">
           <i className="fa fa-phone"></i>
           <h5>Phone</h5>
-          <p>(+84) 39 820 4520</p>
+          <a href='tel:0398204520' className='tellme'>
+            <p>(+84) 39 820 4520</p>
+          </a>
         </div>
         <div className="single-contact">
           <i className="fa fa-envelope"></i>
