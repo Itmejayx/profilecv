@@ -1,7 +1,5 @@
 import React from 'react'
 import './sidebar.css'
-import Logo from '../../assets/logo.svg'
-
 const Sidebar = () => {
   return (
     <aside className='aside'>
@@ -30,6 +28,12 @@ const Sidebar = () => {
             <li className="nav__item">
               <a href="#contact" className="nav__link">
                 <i className='icon-bubble'></i>
+              </a>
+            </li>
+
+            <li className="nav__item">
+              <a href="#project" className="nav__link">
+                <i className='icon-briefcase'></i>
               </a>
             </li>
           </ul>
